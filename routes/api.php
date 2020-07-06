@@ -14,6 +14,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+
+Route::group(['prefix'=>'users'],function(){ 
+    Route::post('register','UserController@register');
+    Route::post('login','UserController@login');
+    Route::get('me','UserController@me');
+    Route::get('logout','UserController@logout'); 
 });
+
+Route::group(['prefix'=>'category'],function(){  
+    Route::post('register','CategoryController@register');
+    Route::post('remove','CategoryController@remove');  
+});
+
+Route::group(['prefix'=>'products'],function(){ 
+    Route::post('register','ProductController@register');
+   
+});
+
+
