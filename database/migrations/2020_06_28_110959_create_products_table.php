@@ -21,21 +21,17 @@ class CreateProductsTable extends Migration
             $table->decimal('price',15,2);
             $table->integer('users_id')->unsigned(); 
             $table->integer('categories_id')->unsigned(); 
-            
+            $table->string('image')->nullable();  
             $table->timestamps();
+            
             $table->foreign('users_id')->references('id')->on('users')->onUpdate('cascade');
             $table->foreign('categories_id')->references('id')->on('categories')->onUpdate('cascade');
            
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+     
     public function down()
-    {
+    {      
         Schema::dropIfExists('products');
     }
 }

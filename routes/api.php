@@ -33,6 +33,8 @@ Route::group(['prefix'=>'category'],function(){
 
 Route::group(['prefix'=>'products'],function(){ 
     Route::post('register','ProductController@register');
+    Route::get('show','ProductController@show');
+
    
 });
 
