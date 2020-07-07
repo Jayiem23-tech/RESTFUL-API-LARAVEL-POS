@@ -24,18 +24,14 @@ Route::group(['prefix'=>'users'],function(){
     Route::post('login','UserController@login');
     Route::get('me','UserController@me');
     Route::get('logout','UserController@logout'); 
-});
-
+}); 
 Route::group(['prefix'=>'category'],function(){  
     Route::post('register','CategoryController@register');
     Route::post('remove','CategoryController@remove');  
-});
-
+}); 
 Route::group(['prefix'=>'products'],function(){ 
     Route::post('register','ProductController@register');
-    Route::get('show','ProductController@show');
-
-   
+    Route::get('show','ProductController@show'); 
 });
 
 

@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    protected $guarded = [];
-
+    protected $guarded = []; 
+    
 // / ELOQUENT RELATIONAL
     public function category(){
         return $this->belongsTo('App\Category');

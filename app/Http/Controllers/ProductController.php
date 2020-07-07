@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use Intervention\Image\Facades\Image;
+use App\Http\Resources\Product as ProductResource;
+use App\Http\Resources\ProductCollection as ProductCollection;
+
+
 
 class ProductController extends Controller
 {
@@ -12,7 +16,12 @@ class ProductController extends Controller
     {
         $this->middleware('auth:api');
     } 
-    public function register(Request $request){ 
+    public function show(){
+          $products = Product::all();
+          return new ProductCollection($products);
+    }
+    public function register(Request $request){  
+
         $data = $request->validate([  
             'name' => "String",
             'code' => "String",
