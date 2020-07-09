@@ -33,5 +33,12 @@ Route::group(['prefix'=>'products'],function(){
     Route::post('register','ProductController@register');
     Route::get('show','ProductController@show'); 
 });
-
+Route::group(['prefix'=>'company'],function(){ 
+    Route::post('update','CompanyController@update');
+    Route::post('newCompany','CompanyController@newCompany'); 
+});
+Route::group(['prefix'=>'transaction'],function(){ 
+    Route::post('save','TransactionController@Savebody');
+    Route::get('lookup','TransactionController@Lookup'); 
+});
 
